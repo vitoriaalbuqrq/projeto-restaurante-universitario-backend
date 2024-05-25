@@ -34,7 +34,6 @@ public class Aluno {
     private Endereco endereco;
  
     public Aluno(){
-
     }
 
     public Aluno(Integer id, Integer matricula, String nomeCompleto, String cpf, String curso, Endereco endereco) {

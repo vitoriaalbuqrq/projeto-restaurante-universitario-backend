@@ -1,6 +1,7 @@
 package com.project.restaurante_universitario.dto;
 
 import com.project.restaurante_universitario.entities.Aluno;
+import com.project.restaurante_universitario.entities.Endereco;
 
 public class AlunoDTO {
     private Integer id;
@@ -8,6 +9,7 @@ public class AlunoDTO {
     private String nomeCompleto;
     private String cpf;
     private String curso;
+    private Endereco endereco;
 
     public AlunoDTO(){}
 
@@ -17,6 +19,7 @@ public class AlunoDTO {
         nomeCompleto = entity.getNomeCompleto();
         cpf = entity.getCpf();
         curso = entity.getCurso();
+        endereco = entity.getEndereco();
     }
 
     public Integer getId() {
@@ -37,6 +40,10 @@ public class AlunoDTO {
 
     public String getCurso() {
         return curso;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
     }
     
     
