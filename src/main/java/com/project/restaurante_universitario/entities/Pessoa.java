@@ -7,42 +7,36 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_aluno")
-public class Aluno {
+@Table(name = "tb_pessoa")
+public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer matricula;
-
+    
     @Column(length = 255)
-    private String nomeCompleto;
+    private String nome;
 
     @Column(length = 15)
     private String cpf;
 
     @Column(length = 255)
-    private String curso;
-    
-    @ManyToOne
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
- 
-    public Aluno(){
-    }
+    private String telefoneWhatsapp;
 
-    public Aluno(Integer id, Integer matricula, String nomeCompleto, String cpf, String curso, Endereco endereco) {
+    @Column(length = 255)
+    private String email;
+
+    public Pessoa(){}
+
+    public Pessoa(Integer id, String nome, String cpf, String telefoneWhatsapp, String email) {
         this.id = id;
-        this.matricula = matricula;
-        this.nomeCompleto = nomeCompleto;
+        this.nome = nome;
         this.cpf = cpf;
-        this.curso = curso;
-        this.endereco = endereco;
+        this.telefoneWhatsapp = telefoneWhatsapp;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -53,20 +47,12 @@ public class Aluno {
         this.id = id;
     }
 
-    public Integer getMatricula() {
-        return matricula;
+    public String getNome() {
+        return nome;
     }
 
-    public void setMatricula(Integer matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
-
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -77,20 +63,20 @@ public class Aluno {
         this.cpf = cpf;
     }
 
-    public String getCurso() {
-        return curso;
+    public String getTelefoneWhatsapp() {
+        return telefoneWhatsapp;
     }
 
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setTelefoneWhatsapp(String telefoneWhatsapp) {
+        this.telefoneWhatsapp = telefoneWhatsapp;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -106,7 +92,7 @@ public class Aluno {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Aluno other = (Aluno) obj;
+        Pessoa other = (Pessoa) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -115,4 +101,5 @@ public class Aluno {
         return true;
     }
 
+    
 }
