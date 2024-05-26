@@ -54,8 +54,6 @@ public class RestauranteService {
         restaurante.setPessoaResponsavel(pessoaResponsavel);
 
         restaurante.setNomeRestaurante(restauranteDTO.getNomeRestaurante());
-        //restaurante.setEndereco(restauranteDTO.getEndereco());
-        //restaurante.setPessoaResponsavel(restauranteDTO.getPessoaResponsavel());
         restaurante.setCapacidadeRefeicao(restauranteDTO.getCapacidadeRefeicao());
         restaurante.setHorarioCafeDaManha(restauranteDTO.getHorarioCafeDaManha());
         restaurante.setHorarioAlmoco(restauranteDTO.getHorarioAlmoco());

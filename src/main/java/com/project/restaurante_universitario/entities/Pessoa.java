@@ -8,9 +8,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "tb_pessoa")
+@Table(name = "tb_pessoa", uniqueConstraints = {
+@UniqueConstraint(columnNames = "cpf"),
+@UniqueConstraint(columnNames = "telefoneWhatsapp")
+})
 public class Pessoa {
 
     @Id

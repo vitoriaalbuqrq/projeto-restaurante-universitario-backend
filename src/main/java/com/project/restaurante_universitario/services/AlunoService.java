@@ -62,7 +62,6 @@ public class AlunoService {
         aluno.setCpf(alunoDTO.getCpf());
         aluno.setCurso(alunoDTO.getCurso());
 
-        // Buscar Endereco pelo ID
         Endereco endereco = enderecoRepository.findById(alunoDTO.getEnderecoId())
                 .orElseThrow(() -> new ResourceNotFoundException("Endereço não encontrado com o ID: " + alunoDTO.getEnderecoId()));
         aluno.setEndereco(endereco);
