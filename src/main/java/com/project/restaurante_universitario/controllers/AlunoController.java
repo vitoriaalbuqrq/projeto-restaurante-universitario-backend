@@ -32,6 +32,7 @@ public class AlunoController {
         return ResponseEntity.ok(alunoDTO);
     }
     
+    @CrossOrigin
     @GetMapping
     public List<AlunoDTO> findAll() {
         List<AlunoDTO> result = alunoService.findAll();
