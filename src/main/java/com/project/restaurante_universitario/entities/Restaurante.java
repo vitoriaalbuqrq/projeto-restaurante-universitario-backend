@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_restaurante")
-class Restaurante {
+public class Restaurante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,6 @@ class Restaurante {
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoaResponsavel;
 
-    @Column(length = 255)
     private Integer capacidadeRefeicao;
 
     @Column(length = 10)

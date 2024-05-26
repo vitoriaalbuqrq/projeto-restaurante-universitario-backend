@@ -9,13 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.restaurante_universitario.dto.AlunoDTO;
 import com.project.restaurante_universitario.entities.Aluno;
+import com.project.restaurante_universitario.entities.Endereco;
 import com.project.restaurante_universitario.repositories.AlunoRepository;
+import com.project.restaurante_universitario.repositories.EnderecoRepository;
 
 @Service
 public class AlunoService {
 
     @Autowired
     private AlunoRepository alunoRepository;
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
     @Transactional(readOnly = true)
     public AlunoDTO findById(Integer id) {
@@ -37,7 +42,11 @@ public class AlunoService {
         aluno.setNomeCompleto(alunoDTO.getNomeCompleto());
         aluno.setCpf(alunoDTO.getCpf());
         aluno.setCurso(alunoDTO.getCurso());
-        aluno.setEndereco(alunoDTO.getEndereco());
+
+        // Buscar Endereco pelo ID
+        Endereco endereco = enderecoRepository.findById(alunoDTO.getEnderecoId())
+                .orElseThrow(() -> new ResourceNotFoundException("Endereço não encontrado com o ID: " + alunoDTO.getEnderecoId()));
+        aluno.setEndereco(endereco);
 
         aluno = alunoRepository.save(aluno);
         return new AlunoDTO(aluno);
@@ -52,7 +61,11 @@ public class AlunoService {
         aluno.setNomeCompleto(alunoDTO.getNomeCompleto());
         aluno.setCpf(alunoDTO.getCpf());
         aluno.setCurso(alunoDTO.getCurso());
-        aluno.setEndereco(alunoDTO.getEndereco());
+
+        // Buscar Endereco pelo ID
+        Endereco endereco = enderecoRepository.findById(alunoDTO.getEnderecoId())
+                .orElseThrow(() -> new ResourceNotFoundException("Endereço não encontrado com o ID: " + alunoDTO.getEnderecoId()));
+        aluno.setEndereco(endereco);
 
         aluno = alunoRepository.save(aluno);
         return new AlunoDTO(aluno);

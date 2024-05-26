@@ -10,6 +10,7 @@ public class AlunoDTO {
     private String cpf;
     private String curso;
     private Endereco endereco;
+    private Integer enderecoId;
 
     public AlunoDTO(){}
 
@@ -20,6 +21,7 @@ public class AlunoDTO {
         cpf = entity.getCpf();
         curso = entity.getCurso();
         endereco = entity.getEndereco();
+        enderecoId = entity.getEndereco() != null ? entity.getEndereco().getId() : null;
     }
 
     public Integer getId() {
@@ -45,5 +47,10 @@ public class AlunoDTO {
     public Endereco getEndereco() {
         return endereco;
     }
+
+    public Integer getEnderecoId() {
+        return enderecoId;
+    }
+    
     
 }
