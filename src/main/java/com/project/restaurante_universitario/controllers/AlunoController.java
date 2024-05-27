@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/alunos")
 public class AlunoController {
 
@@ -32,7 +33,6 @@ public class AlunoController {
         return ResponseEntity.ok(alunoDTO);
     }
     
-    @CrossOrigin
     @GetMapping
     public List<AlunoDTO> findAll() {
         List<AlunoDTO> result = alunoService.findAll();
@@ -47,6 +47,7 @@ public class AlunoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<AlunoDTO> update(@PathVariable Integer id, @RequestBody AlunoDTO alunoDTO) {
+        System.out.println("Recebendo dados para atualizar: " + alunoDTO);
         AlunoDTO updatedAluno = alunoService.update(id, alunoDTO);
         return ResponseEntity.ok(updatedAluno);
     }
